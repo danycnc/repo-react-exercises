@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <Hello />
         <Welcome name='Jonh' age={8} />
-        <Counter />
+        <Counter initialValue={5} increment={3} interval={500} />
       </div>
     );
   }
