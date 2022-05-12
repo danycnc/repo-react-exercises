@@ -15,10 +15,6 @@ class Login extends React.Component {
     this.setState({ [name]: type === 'checkbox' ? checked : value });
   };
 
-  handleClick = () => {
-    this.state.onLogin(this.state);
-  };
-
   render() {
     return (
       <div>
