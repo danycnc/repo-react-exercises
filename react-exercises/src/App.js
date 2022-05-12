@@ -7,6 +7,10 @@ import InteractiveWelcome from './InteractiveWelcome';
 import Login from './Login';
 import Welcome from './Welcome';
 
+const onLogin = (state) => {
+  return console.log(state);
+};
+
 class App extends Component {
   render() {
     return (
@@ -17,7 +21,7 @@ class App extends Component {
         <ClickCounter />
         <ClickTracker />
         <InteractiveWelcome />
-        <Login />
+        <Login currentState={onLogin} />
       </div>
     );
   }

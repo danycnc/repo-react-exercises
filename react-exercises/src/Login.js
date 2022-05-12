@@ -1,6 +1,10 @@
 import React from 'react';
 class Login extends React.Component {
-  state = { username: '', password: '', remember: false };
+  state = {
+    username: '',
+    password: '',
+    remember: false,
+  };
 
   handleInput = (event) => {
     const name = event.target.name;
@@ -9,6 +13,10 @@ class Login extends React.Component {
     const checked = event.target.checked;
 
     this.setState({ [name]: type === 'checkbox' ? checked : value });
+  };
+
+  handleClick = () => {
+    this.state.onLogin(this.state);
   };
 
   render() {
@@ -37,6 +45,14 @@ class Login extends React.Component {
             value={this.state.remember}
             type='checkbox'></input>
         </div>
+        {(!this.state.username || !this.state.password) && (
+          <button disabled={true}>Login</button>
+        )}
+        {this.state.username && this.state.password && (
+          <button onClick={() => this.props.currentState(this.state)}>
+            Login
+          </button>
+        )}
       </div>
     );
   }
