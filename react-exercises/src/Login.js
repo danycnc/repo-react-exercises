@@ -15,6 +15,14 @@ class Login extends React.Component {
     this.setState({ [name]: type === 'checkbox' ? checked : value });
   };
 
+  handleReset = () => {
+    this.setState({
+      username: '',
+      remember: false,
+      password: '',
+    });
+  };
+
   render() {
     return (
       <div>
@@ -38,7 +46,7 @@ class Login extends React.Component {
           <input
             onChange={this.handleInput}
             name='remember'
-            value={this.state.remember}
+            checked={this.state.remember}
             type='checkbox'></input>
         </div>
         {(!this.state.username || !this.state.password) && (
@@ -49,6 +57,7 @@ class Login extends React.Component {
             Login
           </button>
         )}
+        <button onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
