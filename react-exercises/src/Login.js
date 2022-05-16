@@ -41,14 +41,11 @@ class Login extends React.Component {
             value={this.state.remember}
             type='checkbox'></input>
         </div>
-        {(!this.state.username || !this.state.password) && (
-          <button disabled={true}>Login</button>
-        )}
-        {this.state.username && this.state.password && (
-          <button onClick={() => this.props.currentState(this.state)}>
-            Login
-          </button>
-        )}
+
+        <button
+          disabled={(!this.state.username || !this.state.password) ?? true}>
+          Login
+        </button>
       </div>
     );
   }
