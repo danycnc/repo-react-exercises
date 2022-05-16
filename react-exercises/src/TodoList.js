@@ -17,14 +17,23 @@ class TodoList extends React.Component {
     this.setState({ newTodo: '', items: items });
   };
 
-  handleReset = () => {
+  handleResetAll = () => {
     this.setState({ items: [] });
+  };
+
+  handleReset = (index) => {
+    const { items } = this.state;
+    items.splice(index, 1);
+    this.setState(items);
   };
 
   render() {
     const items = this.state.items.map((name, index) => (
-      <li key={name + index}>{name}</li>
+      <li key={name + index}>
+        {name} <button onClick={() => this.handleReset(index)}>Delete</button>
+      </li>
     ));
+
     return (
       <div>
         <h3>TodoList</h3>
@@ -33,7 +42,7 @@ class TodoList extends React.Component {
           value={this.state.newTodo}
           onChange={this.handleInput}></input>
         <button onClick={this.handleAddTodo}>Add</button>
-        <button onClick={this.handleReset}>Delete All</button>
+        <button onClick={this.handleResetAll}>Delete All</button>
         <ul>{items}</ul>
       </div>
     );
