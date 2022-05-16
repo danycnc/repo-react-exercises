@@ -5,6 +5,7 @@ import Counter from './Counter';
 import Hello from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
 import Login from './Login';
+import UncontrolledLogin from './UncontrolledLogin';
 import Welcome from './Welcome';
 
 const onLogin = (state) => {
@@ -22,6 +23,7 @@ class App extends Component {
         <ClickTracker />
         <InteractiveWelcome />
         <Login currentState={onLogin} />
+        <UncontrolledLogin currentState={onLogin} />
       </div>
     );
   }
