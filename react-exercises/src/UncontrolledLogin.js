@@ -2,6 +2,8 @@ import React, { createRef } from 'react';
 
 class UncontrolledLogin extends React.Component {
   _formRef = createRef();
+  _userRef = createRef();
+
   state = {
     username: '',
     password: '',
@@ -21,6 +23,10 @@ class UncontrolledLogin extends React.Component {
     this.setState({ [name]: type === 'checkbox' ? checked : value });
   };
 
+  componentDidMount() {
+    this._userRef.current.focus();
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +34,10 @@ class UncontrolledLogin extends React.Component {
         <form ref={this._formRef} onSubmit={this.handleFormSubmit}>
           <div>
             Username
-            <input name='username' onChange={this.handleInput}></input>
+            <input
+              ref={this._userRef}
+              name='username'
+              onChange={this.handleInput}></input>
           </div>
           <div>
             Password
