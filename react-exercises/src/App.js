@@ -5,6 +5,7 @@ import Counter from './Counter';
 import Hello from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
 import Login from './Login';
+import TodoList from './TodoList';
 import UncontrolledLogin from './UncontrolledLogin';
 import Welcome from './Welcome';
 
@@ -24,6 +25,7 @@ class App extends Component {
         <InteractiveWelcome />
         <Login currentState={onLogin} />
         <UncontrolledLogin currentState={onLogin} />
+        <TodoList />
       </div>
     );
   }
