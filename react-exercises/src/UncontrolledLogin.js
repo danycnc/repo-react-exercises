@@ -10,9 +10,12 @@ class UncontrolledLogin extends React.Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+    //costanti
   };
 
   handleInput = (event) => {
+    //createRef....current
+
     const name = event.target.name;
     const value = event.target.value;
     const type = event.target.type;
