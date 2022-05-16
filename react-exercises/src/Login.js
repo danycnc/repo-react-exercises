@@ -51,6 +51,11 @@ class Login extends React.Component {
         </div>
 
         <button
+          style={
+            this.state.password.length < 8
+              ? { backgroundColor: 'red' }
+              : { backgroundColor: 'green' }
+          }
           disabled={(!this.state.username || !this.state.password) ?? true}>
           Login
         </button>
