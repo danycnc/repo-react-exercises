@@ -27,7 +27,8 @@ class App extends Component {
         <Login currentState={onLogin} />
         <UncontrolledLogin currentState={onLogin} />
         <TodoList />
-        <Container>
+        <br></br>
+        <Container title={<h2>Container title</h2>}>
           <p>This is a container</p>
           <Counter />
         </Container>
