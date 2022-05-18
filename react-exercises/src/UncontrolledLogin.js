@@ -1,12 +1,7 @@
 import React, { createRef } from 'react';
 
 class UncontrolledLogin extends React.Component {
-<<<<<<< HEAD
-  _formRef = createRef();
-  _userRef = createRef();
-=======
   _refForm = createRef();
->>>>>>> forms-05
 
   state = {
     username: '',
@@ -41,7 +36,6 @@ class UncontrolledLogin extends React.Component {
   render() {
     return (
       <div>
-
         <form ref={this._refForm} onSubmit={this.submitForm}>
           Username
           <input name='username' />
