@@ -56,7 +56,8 @@ class Login extends React.Component {
               ? { backgroundColor: 'red' }
               : { backgroundColor: 'green' }
           }
-          disabled={(!this.state.username || !this.state.password) ?? true}>
+          disabled={(!this.state.username || !this.state.password) ?? true}
+          onClick={() => this.props.currentState(this.state)}>
           Login
         </button>
       </div>
