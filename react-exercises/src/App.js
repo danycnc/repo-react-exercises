@@ -3,8 +3,10 @@ import ClickCounter from './ClickCounter';
 import ClickTracker from './ClickTracker';
 import Container from './Container';
 import Counter from './Counter';
+import DisplyLanguage from './DisplayLanguage';
 import Hello from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
+import { LanguageContext } from './LanguageContext';
 import Login from './Login';
 import TodoList from './TodoList';
 import UncontrolledLogin from './UncontrolledLogin';
@@ -15,6 +17,16 @@ const onLogin = (state) => {
 };
 
 class App extends Component {
+  state = {
+    language: 'en',
+  };
+
+  handleLanguage = (event) => {
+    this.setState({
+      language: event.target.value,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -32,6 +44,13 @@ class App extends Component {
           <p>This is a container</p>
           <Counter />
         </Container>
+        <select value={this.state.language} onChange={this.handleLanguage}>
+          <option value='en'>English</option>
+          <option value='it'>Italiano</option>
+        </select>
+        <LanguageContext.Provider value={this.state.language}>
+          <DisplyLanguage />
+        </LanguageContext.Provider>
       </div>
     );
   }
