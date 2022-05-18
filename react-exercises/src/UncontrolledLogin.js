@@ -29,10 +29,6 @@ class UncontrolledLogin extends React.Component {
     return console.log(username, password, remember);
   };
 
-  componentDidMount() {
-    this._userRef.current.focus();
-  }
-
   render() {
     return (
       <div>
