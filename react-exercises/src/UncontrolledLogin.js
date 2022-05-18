@@ -1,59 +1,52 @@
 import React, { createRef } from 'react';
 
 class UncontrolledLogin extends React.Component {
-  _formRef = createRef();
+  _refForm = createRef();
+
   state = {
     username: '',
     password: '',
-    remember: false,
+    enable: false,
   };
 
-  handleFormSubmit = (event) => {
+  enableButton = () => {
+    const username = this._refForm.current.elements.username.value;
+    const password = this._refForm.current.elements.password.value;
+
+    this.setState({
+      username: username,
+      password: password,
+      enable: !!username && !!password,
+    });
+  };
+
+  submitForm = (event) => {
     event.preventDefault();
-    //costanti
-  };
+    const username = event.target.elements.username.value;
+    const password = event.target.elements.password.value;
+    const remember = event.target.elements.remember.cheked;
 
-  handleInput = (event) => {
-    //createRef....current
-
-    const name = event.target.name;
-    const value = event.target.value;
-    const type = event.target.type;
-    const checked = event.target.checked;
-
-    this.setState({ [name]: type === 'checkbox' ? checked : value });
+    return console.log(username, password, remember);
   };
 
   render() {
     return (
       <div>
-        <h3>UncontrolledLogin</h3>
-        <form ref={this._formRef} onSubmit={this.handleFormSubmit}>
-          <div>
-            Username
-            <input name='username' onChange={this.handleInput}></input>
-          </div>
-          <div>
-            Password
-            <input
-              name='password'
-              onChange={this.handleInput}
-              type='password'></input>
-          </div>
-          <div>
-            Remember
-            <input
-              name='remember'
-              onChange={this.handleInput}
-              type='checkbox'></input>
-          </div>
-
+        <form ref={this._refForm} onSubmit={this.submitForm}>
+          Username
+          <input name='username' />
+          <br />
+          Password
+          <input name='password' onChange={this.enableButton} type='password' />
+          <br />
+          Remember
+          <input name='remember' onChange={this.enableButton} type='checkbox' />
+          <br />
           <button
-            disabled={(!this.state.username || !this.state.password) ?? true}
+            disabled={!this.state.enable}
             onClick={() => this.props.currentState(this.state)}>
             Login
           </button>
-
           <button type='reset'>Reset</button>
         </form>
       </div>
