@@ -18,37 +18,23 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Hello />
-        <Welcome name='Jonh' age={8} />
-        <Counter initialValue={5} increment={3} interval={500} />
-        <ClickCounter />
-        <ClickTracker />
-        <InteractiveWelcome />
-        <Login currentState={onLogin} />
-        <UncontrolledLogin currentState={onLogin} />
-        <TodoList />
-        <br></br>
-        <Container title={<h2>Container title</h2>}>
-          <p>This is a container</p>
-          <Counter />
-        </Container>
         <TodoList
-          render={(items) => {
-            items.map((name, index) => (
-              <li key={name + index}>
-                {name}
-                {/* <button onClick={() => this.handleReset(index)}>Delete</button> */}
+          render={(items, reset) => {
+            items.map((todo, index) => (
+              <li key={todo + index}>
+                {todo}
+                <button onClick={() => reset(index)}>Delete</button>
               </li>
             ));
             return (
               <div>
                 <h3>TodoList</h3>
-                {/* <input
+                <input
                   name='newTodo'
-                  value={this.state.newTodo}
+                  //value={this.state.newTodo}
                   onChange={this.handleInput}></input>
                 <button onClick={this.handleAddTodo}>Add</button>
-                <button onClick={this.handleResetAll}>Delete All</button> */}
+                <button onClick={this.handleResetAll}>Delete All</button>
                 <ul>{items}</ul>
               </div>
             );

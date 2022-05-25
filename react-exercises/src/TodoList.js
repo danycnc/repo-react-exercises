@@ -35,17 +35,17 @@ class TodoList extends React.Component {
     // ));
 
     return (
-      <div>{this.props.render(this.state.items)}</div>
-      // <div>
-      //   <h3>TodoList</h3>
-      //   <input
-      //     name='newTodo'
-      //     value={this.state.newTodo}
-      //     onChange={this.handleInput}></input>
-      //   <button onClick={this.handleAddTodo}>Add</button>
-      //   <button onClick={this.handleResetAll}>Delete All</button>
-      //   <ul>{items}</ul>
-      // </div>
+      <div>
+        {this.props.render(this.state.items, this.handleReset)}
+        {/* <h3>TodoList</h3>
+        <input
+          name='newTodo'
+          value={this.state.newTodo}
+          onChange={this.handleInput}></input>
+        <button onClick={this.handleAddTodo}>Add</button>
+        <button onClick={this.handleResetAll}>Delete All</button>
+        <ul>{items}</ul> */}
+      </div>
     );
   }
 }
