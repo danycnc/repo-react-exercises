@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div>
         <Welcome name='Daniele' age={27} />
-        <Sum numbers={[5, 4, 3]}></Sum>
+        <Sum></Sum>
       </div>
     );
   }
