@@ -2,6 +2,7 @@ import { Component } from 'react';
 import ClickCounter from './ClickCounter';
 import ClickTracker from './ClickTracker';
 import Counter from './Counter';
+import GithubUser from './GithubUser';
 import Hello from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
 import Login from './Login';
@@ -22,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Counter />
+        <GithubUser username={'danycnc'} />
       </div>
     );
   }
