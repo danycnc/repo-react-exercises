@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Counter onCounterChange={onCounterChange} />
+        <Counter />
       </div>
     );
   }

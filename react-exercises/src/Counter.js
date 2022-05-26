@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react';
-import CounterDisplay from './CounterDisplay';
-
-const Counter = ({ initialValue = 0, increment = 1, onCounterChange }) => {
-  const [count, setCount] = useState(initialValue);
+import { useState, useEffect } from 'react';
+const Counter = () => {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    onCounterChange(count);
-  }, [count, onCounterChange]);
+    const interval = setInterval(() => {
+      setCount((c) => c + 1);
+    }, 1000);
 
-  const handleCounter = () => {
-    setCount((count) => count + increment);
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
-      <CounterDisplay count={count} />
-      <button onClick={handleCounter}>Increment</button>
+      <h1>{count}</h1>
     </div>
   );
 };
