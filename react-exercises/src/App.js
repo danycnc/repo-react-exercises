@@ -14,11 +14,15 @@ const onLogin = (state) => {
   return console.log(state);
 };
 
+const onCounterChange = (currentValue) => {
+  console.log(`Currunt valus is ${currentValue}`);
+};
+
 class App extends Component {
   render() {
     return (
       <div>
-        <Login onLogin={onLogin}></Login>
+        <Counter onCounterChange={onCounterChange} />
       </div>
     );
   }
