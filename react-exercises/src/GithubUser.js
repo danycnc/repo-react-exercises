@@ -1,14 +1,13 @@
 import useGithubUser from './useGithubUser';
 
 const GithubUser = ({ username }) => {
-  const { user, setUser } = useGithubUser(username);
+  const { user, loading, error } = useGithubUser(username);
 
   return (
     <div>
-      <h1>User searched: {user.name}</h1>
-      <h2>Login: {user.login}</h2>
-      <h2>Subscribed: {user.created_at}</h2>
-      <h2>Link: {user.html_url}</h2>
+      {loading && <h1>Loading...</h1>}
+      {error && <h1>Error</h1>}
+      {user && <h1>User searched: {user.name}</h1>}
     </div>
   );
 };
