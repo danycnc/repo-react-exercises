@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <GithubUser username={'danycnc'} />
+        <Counter />
       </div>
     );
   }
