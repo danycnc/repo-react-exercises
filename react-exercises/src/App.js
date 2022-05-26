@@ -20,6 +20,7 @@ class App extends Component {
       <div>
         <Welcome name='Daniele' age={27} />
         <Sum></Sum>
+        <Counter />
       </div>
     );
   }
