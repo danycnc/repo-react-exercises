@@ -1,68 +1,56 @@
-import React from 'react';
-class Login extends React.Component {
-  state = {
+import React, { useState } from 'react';
+
+const Login = ({ onLogin }) => {
+  const [data, setData] = useState({
     username: '',
     password: '',
     remember: false,
-  };
+  });
 
-  handleInput = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const type = event.target.type;
-    const checked = event.target.checked;
+  const handleInput = (event) => {
+    const { name, type, value, checked } = event.target;
 
-    this.setState({ [name]: type === 'checkbox' ? checked : value });
-  };
-
-  handleReset = () => {
-    this.setState({
-      username: '',
-      remember: false,
-      password: '',
+    setData((data) => {
+      return {
+        ...data,
+        [name]: type === 'checkbox' ? checked : value,
+      };
     });
   };
 
-  render() {
-    return (
+  return (
+    <div>
       <div>
-        <div>
-          Username
-          <input
-            onChange={this.handleInput}
-            name='username'
-            value={this.state.username}></input>
-        </div>
-        <div>
-          Password
-          <input
-            onChange={this.handleInput}
-            name='password'
-            value={this.state.password}
-            type='password'></input>
-        </div>
-        <div>
-          Remember
-          <input
-            onChange={this.handleInput}
-            name='remember'
-            checked={this.state.remember}
-            type='checkbox'></input>
-        </div>
-
-        <button
-          style={
-            this.state.password.length < 8
-              ? { backgroundColor: 'red' }
-              : { backgroundColor: 'green' }
-          }
-          disabled={(!this.state.username || !this.state.password) ?? true}
-          onClick={() => this.props.currentState(this.state)}>
-          Login
-        </button>
+        Username
+        <input
+          onChange={handleInput}
+          name='username'
+          value={data.username}></input>
       </div>
-    );
-  }
-}
+      <div>
+        Password
+        <input
+          onChange={handleInput}
+          name='password'
+          value={data.password}
+          type='password'></input>
+      </div>
+      <div>
+        Remember
+        <input
+          onChange={handleInput}
+          name='remember'
+          value={data.remember}
+          type='checkbox'></input>
+      </div>
+
+      <button
+        disabled={(!data.username || !data.password) ?? true}
+        onClick={() => onLogin(data)}>
+        Login
+      </button>
+    </div>
+  );
+};
 
 export default Login;

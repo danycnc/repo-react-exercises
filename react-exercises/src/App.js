@@ -18,9 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Welcome name='Daniele' age={27} />
-        <Sum></Sum>
-        <Counter />
+        <Login onLogin={onLogin}></Login>
       </div>
     );
   }
