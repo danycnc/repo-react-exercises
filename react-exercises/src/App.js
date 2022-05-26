@@ -5,6 +5,7 @@ import Counter from './Counter';
 import GithubUser from './GithubUser';
 import GithubUserList from './GithubUserList';
 import Hello from './Hello';
+import HookLogin from './HookLogin';
 import InteractiveWelcome from './InteractiveWelcome';
 import Login from './Login';
 import Sum from './Sum';
@@ -16,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Counter />
+        <HookLogin />
       </div>
     );
   }
