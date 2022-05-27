@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import CarDetails from './CarDetails';
 import ClickCounter from './ClickCounter';
 import ClickTracker from './ClickTracker';
 import Counter from './Counter';
@@ -14,20 +15,17 @@ import TodoList from './TodoList';
 import UncontrolledLogin from './UncontrolledLogin';
 import Welcome from './Welcome';
 
-const list = [
-  { name: 'daniele', id: 435, age: 27 },
-  { name: 'pippo', id: 651, age: 18 },
-  { name: 'pluto', id: 855, age: 15 },
-  { name: 'paperino', id: 895, age: 12 },
-  { name: 'topolino', id: 946, age: 35 },
-  { name: 'hulk', id: 894, age: 24 },
-];
+const initialData = {
+  model: 'Audi',
+  year: '2021',
+  color: 'black',
+};
 
 class App extends Component {
   render() {
     return (
       <div>
-        <FilteredList list={list} />
+        <CarDetails initialData={initialData} />
       </div>
     );
   }
