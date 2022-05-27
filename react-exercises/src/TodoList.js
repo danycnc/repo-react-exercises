@@ -28,22 +28,15 @@ class TodoList extends React.Component {
   };
 
   render() {
-    const items = this.state.items.map((name, index) => (
-      <li key={name + index}>
-        {name} <button onClick={() => this.handleReset(index)}>Delete</button>
-      </li>
-    ));
-
     return (
       <div>
-        <h3>TodoList</h3>
         <input
           name='newTodo'
           value={this.state.newTodo}
           onChange={this.handleInput}></input>
         <button onClick={this.handleAddTodo}>Add</button>
         <button onClick={this.handleResetAll}>Delete All</button>
-        <ul>{items}</ul>
+        {this.props.render(this.state.items, this.handleReset)}
       </div>
     );
   }
