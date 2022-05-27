@@ -15,7 +15,7 @@ const useGithubUser = (username) => {
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [username]);
 
   return { loading, error, user };
 };

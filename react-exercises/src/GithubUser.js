@@ -7,7 +7,12 @@ const GithubUser = ({ username }) => {
     <div>
       {loading && <h1>Loading...</h1>}
       {error && <h1>Error</h1>}
-      {user && <h1>User searched: {user.name}</h1>}
+      {user && (
+        <h1>
+          User searched:{' '}
+          {`Name: ${user.name} - Login: ${user.login} - Subscribed: ${user.created_at}`}
+        </h1>
+      )}
     </div>
   );
 };
