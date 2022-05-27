@@ -22,13 +22,14 @@ import ShowGithubUser from './ShowGithubUser';
 export function App() {
   return (
     <div>
+      <Link to={'/'}>Home</Link> |<Link to={'/counter'}>Counter</Link> |
+      <Link to={'/users'}>GithubUser</Link> |
       <Routes>
         <Route path='/' element={<Welcome name='Daniele' />} />
         <Route path='counter' element={<Counter />} />
         <Route path='users/:username' element={<ShowGithubUser />} />
+        <Route path='*' element={<h3>Page not found</h3>} />
       </Routes>
-      <Link to={'/'}>Home</Link> |<Link to={'/counter'}>Counter</Link> |
-      <Link to={'/users'}>GithubUser</Link> |
     </div>
   );
 }
