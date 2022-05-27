@@ -16,7 +16,7 @@ import TodoList from './TodoList';
 import UncontrolledLogin from './UncontrolledLogin';
 import Welcome from './Welcome';
 import { LanguageContext } from './LanguageContext';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import ShowGithubUser from './ShowGithubUser';
 
 export function App() {
@@ -27,6 +27,8 @@ export function App() {
         <Route path='counter' element={<Counter />} />
         <Route path='users/:username' element={<ShowGithubUser />} />
       </Routes>
+      <Link to={'/'}>Home</Link> |<Link to={'/counter'}>Counter</Link> |
+      <Link to={'/users'}>GithubUser</Link> |
     </div>
   );
 }
