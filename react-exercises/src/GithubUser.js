@@ -1,16 +1,16 @@
 import useGithubUser from './useGithubUser';
 
 const GithubUser = ({ username }) => {
-  const { user, loading, error } = useGithubUser(username);
+  const { data, loading, error } = useGithubUser(username);
 
   return (
     <div>
       {loading && <h1>Loading...</h1>}
       {error && <h1>Error</h1>}
-      {user && (
+      {data && (
         <h1>
           User searched:{' '}
-          {`Name: ${user.name} - Login: ${user.login} - Subscribed: ${user.created_at}`}
+          {`Name: ${data.name} - Login: ${data.login} - Subscribed: ${data.created_at}`}
         </h1>
       )}
     </div>
