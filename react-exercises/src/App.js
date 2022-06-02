@@ -20,10 +20,13 @@ import { Route, Routes, Link } from 'react-router-dom';
 import ShowGithubUser from './ShowGithubUser';
 import { store } from './state/Store';
 import { incrementCounter } from './state/CounterReducer';
+import { addTodo, editTodo, removeTodo } from './state/TodosReducer';
 
 export function App() {
   store.subscribe(() => console.log(store.getState()));
-  store.dispatch(incrementCounter(5));
-
+  store.dispatch(addTodo({ id: 242, title: 'Kill the cat', completed: false }));
+  store.dispatch(editTodo(242, { title: 'Kill ALL cats in the world' }));
+  store.dispatch(addTodo({ id: 647, title: 'Feed the dog', completed: true }));
+  store.dispatch(removeTodo(242));
   return <div>Check console</div>;
 }
