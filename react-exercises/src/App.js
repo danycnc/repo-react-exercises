@@ -18,22 +18,12 @@ import Welcome from './Welcome';
 import { LanguageContext } from './LanguageContext';
 import { Route, Routes, Link } from 'react-router-dom';
 import ShowGithubUser from './ShowGithubUser';
+import { store } from './state/Store';
+import { incrementCounter } from './state/CounterReducer';
 
 export function App() {
-  return (
-    <div>
-      <Link to={'/'}>Home</Link> |<Link to={'/counter'}>Counter</Link> |
-      <Link to={'/users'}>GithubUser</Link> |
-      <Routes>
-        <Route path='/' element={<Welcome name='Daniele' />} />
-        <Route path='counter' element={<Counter />} />
-        <Route path='users' element={<GithubUserList />}>
-          <Route index element={<p>Add a user and select it</p>} />
-          <Route path=':username' element={<ShowGithubUser />}></Route>
-        </Route>
+  store.subscribe(() => console.log(store.getState()));
+  store.dispatch(incrementCounter(5));
 
-        <Route path='*' element={<h3>Page not found</h3>} />
-      </Routes>
-    </div>
-  );
+  return <div>Check console</div>;
 }
