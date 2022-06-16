@@ -20,7 +20,7 @@ class App extends Component {
       <div>
         <TodoList
           render={(items, reset) => {
-            items.map((todo, index) => (
+            const list = items.map((todo, index) => (
               <li key={todo + index}>
                 {todo}
                 <button onClick={() => reset(index)}>Delete</button>
@@ -28,14 +28,7 @@ class App extends Component {
             ));
             return (
               <div>
-                <h3>TodoList</h3>
-                <input
-                  name='newTodo'
-                  //value={this.state.newTodo}
-                  onChange={this.handleInput}></input>
-                <button onClick={this.handleAddTodo}>Add</button>
-                <button onClick={this.handleResetAll}>Delete All</button>
-                <ul>{items}</ul>
+                <ul>{list}</ul>
               </div>
             );
           }}></TodoList>
