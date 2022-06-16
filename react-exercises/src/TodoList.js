@@ -28,11 +28,11 @@ class TodoList extends React.Component {
   };
 
   render() {
-    const items = this.state.items.map((name, index) => (
-      <li key={name + index}>
-        {name} <button onClick={() => this.handleReset(index)}>Delete</button>
-      </li>
-    ));
+    // const items = this.state.items.map((name, index) => (
+    //   <li key={name + index}>
+    //     {name} <button onClick={() => this.handleReset(index)}>Delete</button>
+    //   </li>
+    // ));
 
     return (
       <div>
@@ -43,7 +43,8 @@ class TodoList extends React.Component {
           onChange={this.handleInput}></input>
         <button onClick={this.handleAddTodo}>Add</button>
         <button onClick={this.handleResetAll}>Delete All</button>
-        <ul>{items}</ul>
+        {/* <ul>{items}</ul> */}
+        {this.props.render(this.state.items, this.handleReset)}
       </div>
     );
   }

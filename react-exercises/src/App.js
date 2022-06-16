@@ -51,6 +51,21 @@ class App extends Component {
         <LanguageContext.Provider value={this.state.language}>
           <DisplyLanguage />
         </LanguageContext.Provider>
+
+        <TodoList
+          render={(items, reset) => {
+            const list = items.map((todo, index) => (
+              <li key={todo + index}>
+                {todo}
+                <button onClick={() => reset(index)}>Delete</button>
+              </li>
+            ));
+            return (
+              <div>
+                <ul>{list}</ul>
+              </div>
+            );
+          }}></TodoList>
       </div>
     );
   }
